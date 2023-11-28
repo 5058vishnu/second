@@ -4,6 +4,7 @@ import 'package:project1/screens/login_page.dart';
 import 'package:project1/screens/profile_page.dart';
 import 'package:project1/screens/registration.dart';
 import 'package:project1/screens/splash_screen.dart';
+import 'package:project1/trash/demo_card.dart';
 import 'package:project1/trash/flutter_toast.dart';
 import 'package:project1/trash/loginmainpage.dart';
 main(){
@@ -14,6 +15,6 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(home: Login12(),);
+    return  const MaterialApp(home: Card1(),);
   }
 }
