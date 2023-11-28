@@ -27,7 +27,7 @@ class _Login12State extends State<Login12> {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/images/pic5.png'))),
+                      image: AssetImage('assets/images/pic2.png'))),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

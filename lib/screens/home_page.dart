@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         // backgroundColor: Colors.black87,
-        title: Text("Make Your Choice " //,style: TextStyle(color: Colors.white)
+        title: Text("Choice Is Yours" //,style: TextStyle(color: Colors.white)
             ),
       ),
       drawer: Drawer(

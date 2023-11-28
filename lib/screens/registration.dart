@@ -26,7 +26,7 @@ class _RegisState extends State<Regis> {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/images/pic5.png'))),
+                      image: AssetImage('assets/images/pic2.png'))),
               child: Padding(
                 padding: const EdgeInsets.only(top: 150),
                 child: Column(
