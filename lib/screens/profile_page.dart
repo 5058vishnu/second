@@ -90,7 +90,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          hintText: "email",
+                          hintText: "Email",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(19))),
                     ),
@@ -113,7 +113,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          hintText: "phone number",
+                          hintText: "Phone number",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(19))),
                     ),

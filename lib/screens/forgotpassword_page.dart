@@ -20,7 +20,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       body: ListView(children: [
         Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image(image: AssetImage('assets/images/')),
+          Image(image: AssetImage('assets/images/pic4.jpg'
+              '')),
           Form(
             key: loginkey,
             child: Padding(
@@ -37,7 +38,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         borderRadius: BorderRadius.circular(12))),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'please enter your email';
+                    return 'Please enter your email';
                   }
                   if (!RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
                       .hasMatch(value)) {

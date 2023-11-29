@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project1/screens/registration.dart';
 
 import 'forgotpassword_page.dart';
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -64,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextFormField(
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'please enter your email';
+                                  return 'Please enter your email';
                                 }
                                 if (!RegExp(
                                     r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -74,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                  hintText: 'enter your emial')),
+                                  hintText: 'Enter your emial')),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 20, top: 20),
@@ -98,10 +100,10 @@ class _LoginPageState extends State<LoginPage> {
                                       ? Icons.visibility
                                       : Icons.visibility_off),
                                 ),
-                                hintText: 'enter your password'),
+                                hintText: 'Enter your password'),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'please confirm your password';
+                                return 'Please confirm your password';
                               }
                               return null;
                             },
@@ -130,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           loginkey.currentState!.validate();
                         },
-                        child: Text('login')),
+                        child: Text('Login')),
                   ],
                 ),
               ), Padding(
@@ -140,7 +142,8 @@ class _LoginPageState extends State<LoginPage> {
                     Text('Do not have an account?'),
                     TextButton(onPressed: () {
                       Navigator.pushAndRemoveUntil(context,
-                          MaterialPageRoute(builder: (context) => const RegistrationPage(),), (
+                          MaterialPageRoute(
+                            builder: (context) => const RegistrationPage(),), (
                               route) => false);
                     }, child: Text('Register'))
                   ],),
