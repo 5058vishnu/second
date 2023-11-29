@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project1/screens/forgotpassword_page.dart';
 import 'package:project1/screens/home_page.dart';
+import 'package:project1/screens/home_page2.dart';
 import 'package:project1/screens/login_page.dart';
 import 'package:project1/screens/profile_page.dart';
 import 'package:project1/screens/registration.dart';
@@ -17,6 +18,6 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(home: SplashScreen(),);
+    return  const MaterialApp(home: HomePage_2(),);
   }
 }
