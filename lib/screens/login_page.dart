@@ -1,73 +1,92 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:project1/screens/registration.dart';
 
-class Login12 extends StatefulWidget {
-  const Login12({super.key});
+import 'forgotpassword_page.dart';
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<Login12> createState() => _Login12State();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _Login12State extends State<Login12> {
+class _LoginPageState extends State<LoginPage> {
   final loginkey = GlobalKey<FormState>();
   bool pass = false;
   var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       body: Form(
         key: loginkey,
         child: ListView(children: [
           Container(
-              height: size.height,
-              width: size.width,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('assets/images/pic2.png'))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 190),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/img_3.png'))),
+            height: size.height,
+            width: size.width,
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 290),
+                child: Container(
+                  width: 350,
+                  height: 280,
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(blurRadius: 20, color: Colors.black38)
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(17.0),
-                          child: TextFormField(
-                            style: TextStyle(color: Colors.black87),
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.grey,
-                                hintText: 'Email',
-                                hintStyle: TextStyle(color: Colors.black87),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(100))),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'please enter your email';
-                              }
-                              if (!RegExp(
-                                      r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                  .hasMatch(value)) {
-                                return "Enter a valid email address";
-                              }
-                              return null;
-                            },
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text('Login',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w900, fontSize: 30)),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(17.0),
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text('Email',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 16)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 19, right: 19),
+                          child: TextFormField(
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'please enter your email';
+                                }
+                                if (!RegExp(
+                                    r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                    .hasMatch(value)) {
+                                  return "Enter a valid email address";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  hintText: 'enter your emial')),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: Text('Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 16)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 19, right: 19),
                           child: TextFormField(
                             controller: passwordController,
                             obscureText: !pass,
-                            style: TextStyle(color: Colors.black),
-                            cursorColor: Colors.redAccent,
                             decoration: InputDecoration(
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -79,13 +98,7 @@ class _Login12State extends State<Login12> {
                                       ? Icons.visibility
                                       : Icons.visibility_off),
                                 ),
-                                filled: true,
-                                fillColor: Colors.grey,
-                                hintText: 'Enter the password',
-                                hintStyle: TextStyle(color: Colors.black87),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(50))),
+                                hintText: 'enter your password'),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'please confirm your password';
@@ -94,70 +107,46 @@ class _Login12State extends State<Login12> {
                             },
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            width: 350,
-                            height: 65,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.blueAccent),
-                                onPressed: () {
-                                  if (loginkey.currentState!.validate()) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text('success')));
-                                  }
-                                },
-                                child: const Text(
-                                  'Login',
-                                  style: TextStyle(
-                                      fontSize: 19, color: Colors.white70),
-                                )),
-                          ),
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Forgot Password',
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            )),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text('Do not have an account ? ',
-                              style: TextStyle(color: Colors.black87)),
-                          TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Regis(),
-                                    ));
-                              },
-                              child: const Text(
-                                'Register',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ))
-                        ],
-                      )
-                    ]),
-                  ),
-                ],
-              )),
+                      ]),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => ForgotPassword(),), (
+                              route) => false);
+                        }, child: Text('Forgot password')),
+                    ElevatedButton(
+                        style: ButtonStyle(
+                            fixedSize: MaterialStatePropertyAll(Size(100, 40)),
+                            backgroundColor:
+                            MaterialStatePropertyAll(Colors.blue)),
+                        onPressed: () {
+                          loginkey.currentState!.validate();
+                        },
+                        child: Text('login')),
+                  ],
+                ),
+              ), Padding(
+                padding: const EdgeInsets.all(30),
+                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Do not have an account?'),
+                    TextButton(onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (context) => const RegistrationPage(),), (
+                              route) => false);
+                    }, child: Text('Register'))
+                  ],),
+              )
+            ]),
+          ),
         ]),
       ),
     );

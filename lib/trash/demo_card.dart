@@ -7,6 +7,8 @@ class Card1 extends StatefulWidget {
 }
 
 class _Card1State extends State<Card1> {
+
+  List carName=['hhd','bhh','hgj'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class _Card1State extends State<Card1> {
       body:
 
             ListView.builder(
-              itemCount: 10,
+              itemCount: carName.length,
 
               itemBuilder: (context, index) {
                 return Container(
@@ -42,7 +44,7 @@ class _Card1State extends State<Card1> {
                     child:  Column(
                       children: [
                         Image.asset('assets/images/pic3.jpg'),
-                        Text("XYZ"),
+                        Text(carName[index]),
 
                         Text("3.5l"),
 

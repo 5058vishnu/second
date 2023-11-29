@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const Login12(),
+          builder: (context) => const LoginPage(),
         ),
       ),
     );
@@ -34,8 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
           height: size.height,
           width: size.width,
           decoration: const BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage('assets/images/pic1.png'),fit: BoxFit.fitHeight)),
+              image: DecorationImage(
+                  image: AssetImage('assets/images/pic1.png'),
+                  fit: BoxFit.fitHeight)),
           child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
