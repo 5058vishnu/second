@@ -1,5 +1,5 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+
 class HomePage_2 extends StatefulWidget {
   const HomePage_2({super.key});
 
@@ -12,37 +12,34 @@ class _HomePage_2State extends State<HomePage_2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.favorite_border),
+          ),
+          IconButton(onPressed:() {
+            
+          }, icon: Icon(Icons.share))
+        ],
         centerTitle: true,
-        title: Text("Vehicle Details",
-            style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          "Vehicle Details",
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-    leading: BackButton(onPressed: () {
-      
-    },style: ButtonStyle()),  ),
-     // body: ListView.builder(itemBuilder: itemBuilder),
-      // body: Container(
-      //   color: Color.fromARGB(219, 219, 219, 219),
-      // decoration: 
-      //   ,
-      // ),
-      // bottomNavigationBar: CurvedNavigationBar(items: [
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Icon(Icons.call),
-      //   ),
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Icon(Icons.currency_bitcoin),
-      //   ),
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Icon(Icons.person_outline),
-      //   ),
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Icon(Icons.favorite_border),
-      //   )
-      // ]),
+        leading: BackButton(
+          onPressed: () {},
+        ),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+        return Container(
+            decoration: BoxDecoration(
+            boxShadow: [
+            BoxShadow(
+            color: Colors.grey,
+            blurRadius: 90.0, // has the effect of softening the shadow
+            spreadRadius: 1.0,
+            ) ])); },),
     );
   }
 }
