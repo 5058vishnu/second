@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'login_page.dart';
 
-
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
 
@@ -20,8 +19,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       body: ListView(children: [
         Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image(image: AssetImage('assets/images/pic4.jpg'
-              '')),
+          Image(
+              image: AssetImage('assets/images/pic4.jpg'
+                  '')),
           Form(
             key: loginkey,
             child: Padding(

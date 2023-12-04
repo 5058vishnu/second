@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'editprofile.dart';
+
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
@@ -24,152 +26,166 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 30, top: 60, left: 14),
-            child: Row(
-              children: [
-                Text('settings',
-                    style:
-                        TextStyle(fontWeight: FontWeight.w900, fontSize: 36)),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Icon(Icons.person_2_outlined, size: 26),
-                Text(
-                  'Accounts',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10, left: 10),
-            child: Divider(),
-          ),
-          ListTile(
-            onTap: () {},
-            leading:
-                Text('Edit profile', style: TextStyle(color: Colors.black54)),
-            trailing: Icon(Icons.navigate_next),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Text('Change password',
-                style: TextStyle(color: Colors.black54)),
-            trailing: Icon(Icons.navigate_next),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Text('Facebook', style: TextStyle(color: Colors.black54)),
-            trailing: Icon(Icons.navigate_next),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Icon(Icons.notifications, size: 26),
-                Text(
-                  'Notifications',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15, left: 15),
-            child: Divider(),
-          ),
-          ListTile(
-            onTap: () {},
-            leading:
-                Text('Notifications', style: TextStyle(color: Colors.black54)),
-            trailing: Switch(
-              activeColor: Colors.blue,
-              value: SwitchOn,
-              onChanged: (value) {
-                setState(() {
-                  SwitchOn = !SwitchOn;
-                });
-              },
-            ),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Text('App notifications',
-                style: TextStyle(color: Colors.black54)),
-            trailing: Switch(
-              activeColor: Colors.blue,
-              value: SwitchOnn,
-              onChanged: (value) {
-                setState(() {
-                  SwitchOnn = !SwitchOnn;
-                });
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Icon(Icons.sticky_note_2, size: 26),
-                Text(
-                  'More',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Divider(),
-          ),
-          ListTile(
-            leading: Text('Language', style: TextStyle(color: Colors.black54)),
-            trailing: DropdownButton(
-              borderRadius: BorderRadius.circular(27),
-              value: dropdownvalue,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdownvalue = newValue!;
-                });
-              },
-            ),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Text('Contry', style: TextStyle(color: Colors.black54)),
-            trailing: Icon(Icons.navigate_next),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 190, right: 190, top: 20),
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(13),
-                    color: Colors.black12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Icon(Icons.logout), Text('Logout')],
-                ),
+     backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Card(elevation: 10,color: Colors.black12,
+                child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 30, top: 60, left: 14),
+                    child: Row(
+                      children: [
+                        Text('settings',
+                            style:
+                                TextStyle(color: Colors.grey[600],fontWeight: FontWeight.w900, fontSize: 36)),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.person_2_outlined, size: 26,color: Colors.grey[600]),
+                        Text(
+                          'Accounts',
+                          style: TextStyle(color: Colors.grey[600],fontSize: 20, fontWeight: FontWeight.w900),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: Divider(),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => EditProfile(),
+                      ));
+                    },
+                    leading:
+                        Text('Edit profile', style: TextStyle(color: Colors.black54)),
+                    trailing: Icon(Icons.navigate_next),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: Text('Change password',
+                        style: TextStyle(color: Colors.black54)),
+                    trailing: Icon(Icons.navigate_next),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: Text('Facebook', style: TextStyle(color: Colors.black54)),
+                    trailing: Icon(Icons.navigate_next),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.notifications, size: 26,color: Colors.grey[600]),
+                        Text(
+                          'Notifications',
+                          style: TextStyle(color: Colors.grey[600],fontSize: 20, fontWeight: FontWeight.w900),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15, left: 15),
+                    child: Divider(),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading:
+                        Text('Notifications', style: TextStyle(color: Colors.black54)),
+                    trailing: Switch(
+                      activeColor: Colors.blue,
+                      value: SwitchOn,
+                      onChanged: (value) {
+                        setState(() {
+                          SwitchOn = !SwitchOn;
+                        });
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: Text('App notifications',
+                        style: TextStyle(color: Colors.black54)),
+                    trailing: Switch(
+                      activeColor: Colors.blue,
+                      value: SwitchOnn,
+                      onChanged: (value) {
+                        setState(() {
+                          SwitchOnn = !SwitchOnn;
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.sticky_note_2, size: 26,color: Colors.grey[600]),
+                        Text(
+                          'More',
+                          style: TextStyle(color: Colors.grey[600],fontSize: 20, fontWeight: FontWeight.w900),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Divider(),
+                  ),
+                  ListTile(
+                    leading: Text('Language', style: TextStyle(color: Colors.black54)),
+                    trailing: DropdownButton(
+                      borderRadius: BorderRadius.circular(27),
+                      value: dropdownvalue,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items: items.map((String items) {
+                        return DropdownMenuItem(
+                          value: items,
+                          child: Text(items),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          dropdownvalue = newValue!;
+                        });
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: Text('Contry', style: TextStyle(color: Colors.black54)),
+                    trailing: Icon(Icons.navigate_next),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 190, right: 190, top: 20),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(13),
+                            color: Colors.black12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Icon(Icons.logout), Text('Logout')],
+                        ),
+                      ),
+                    ),
+                  )
+                ]),
               ),
             ),
-          )
-        ]),
+          ),
+        ),
       ),
     );
   }

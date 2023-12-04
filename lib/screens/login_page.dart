@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project1/screens/registration.dart';
 
 import 'forgotpassword_page.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
