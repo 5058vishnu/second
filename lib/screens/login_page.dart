@@ -17,9 +17,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Form(
         key: loginkey,
@@ -68,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                                   return 'Please enter your email';
                                 }
                                 if (!RegExp(
-                                    r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                        r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
                                     .hasMatch(value)) {
                                   return "Enter a valid email address";
                                 }
@@ -120,32 +118,41 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
-                                builder: (context) => ForgotPassword(),), (
-                              route) => false);
-                        }, child: Text('Forgot password')),
+                                builder: (context) => ForgotPassword(),
+                              ),
+                              (route) => false);
+                        },
+                        child: Text('Forgot password')),
                     ElevatedButton(
                         style: ButtonStyle(
                             fixedSize: MaterialStatePropertyAll(Size(100, 40)),
                             backgroundColor:
-                            MaterialStatePropertyAll(Colors.blue)),
+                                MaterialStatePropertyAll(Colors.blue)),
                         onPressed: () {
                           loginkey.currentState!.validate();
                         },
                         child: Text('Login')),
                   ],
                 ),
-              ), Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.all(30),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Do not have an account?'),
-                    TextButton(onPressed: () {
-                      Navigator.pushAndRemoveUntil(context,
-                          MaterialPageRoute(
-                            builder: (context) => const RegistrationPage(),), (
-                              route) => false);
-                    }, child: Text('Register'))
-                  ],),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegistrationPage(),
+                              ),
+                              (route) => false);
+                        },
+                        child: Text('Register'))
+                  ],
+                ),
               )
             ]),
           ),
